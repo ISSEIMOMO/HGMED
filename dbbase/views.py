@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.urls import reverse
+
 from functions.sql.pado import chamada
 import pandas as pd
 from django.http import HttpResponse
@@ -7,15 +9,17 @@ import urllib.parse
 # Create your views here.
 
 
-def terminal(request):
-    ve='SELECT * FROM Cargo AS c\nWHERE c.nome = c.nome'
-    cargo = chamada(ve)
+
+def pes(request, chm=""):
+    cargo = chamada(chm) if chm else [True, "", ""]
+    err = ""
     if not cargo[0]:
         cargo = [True, "", ""]
-    contex={"re":cargo[1],"ch":cargo[2],"ve":ve,"url":f"{request.build_absolute_uri()}excel/{urllib.parse.quote(ve.replace('\n',' '))}"}
-    return render(request,"db/terminal.html", contex)
-
-
+        err = "Erro na chamada, chamada errada"
+    url=str(request.build_absolute_uri(reverse('excel',args=[str(urllib.parse.quote(chm))]))) if chm else ""
+    contex = {"re": cargo[1], "ch": cargo[2], "ve": chm,
+              "url": url,"urlpes":request.build_absolute_uri(reverse('pes')),"err":err}
+    return render(request, "db/terminal.html", contex)
 
 def excel(request, chm):
     chm = urllib.parse.unquote(chm)
