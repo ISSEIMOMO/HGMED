@@ -37,10 +37,27 @@ class Venda(models.Model):
     codpro = models.ForeignKey('Produto', on_delete=models.CASCADE)
     data_hora = models.DateTimeField()
 
+    def __str__(self):
+        return str(self.codpro.codcarg.nome)
+
 # Produtos
+
+class TipoProduto(models.Model):
+    codtpro = models.CharField(primary_key=True)
+    nome = models.CharField(max_length=255)
+    valor = models.DecimalField(max_digits=10, decimal_places=2)
+
+    def __str__(self):
+        return self.nome
+
+
 class Produto(models.Model):
     codpro = models.CharField(primary_key=True, max_length=100)  # Código de barras
+    codcarg = models.ForeignKey('TipoProduto', on_delete=models.CASCADE)
     valor = models.DecimalField(max_digits=10, decimal_places=2)
+
+    def __str__(self):
+        return f"{self.nome}-{self.codcarg.nome}"
 
 # Fornecedor
 class Fornecedor(models.Model):
@@ -50,6 +67,9 @@ class Fornecedor(models.Model):
     vpc = models.DecimalField(max_digits=10, decimal_places=2)  # Valor por carregamento
     ve = models.DecimalField(max_digits=10, decimal_places=2)   # Valor de entrega
 
+    def __str__(self):
+        return self.nome
+
 # Carregamentos
 class Carregamento(models.Model):
     codcar = models.AutoField(primary_key=True)
@@ -58,12 +78,18 @@ class Carregamento(models.Model):
     dv = models.DateField()  # Data de validade
     lote = models.CharField(max_length=50)
 
+    def __str__(self):
+        return self.lote
+
 # Desconto
 class Desconto(models.Model):
     coddes = models.AutoField(primary_key=True)
     codpro = models.ForeignKey(Produto, on_delete=models.CASCADE)
     di = models.DateField()  # Data de início
     dt = models.DateField()  # Data de término
+
+    def __str__(self):
+        return str(self.codpro)
 
 # Perdas
 class Perda(models.Model):
