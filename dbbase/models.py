@@ -21,11 +21,16 @@ class Cargo(models.Model):
     codcargo = models.AutoField(primary_key=True)
     nome = models.CharField(max_length=255)
 
+    def __str__(self):
+        return self.nome
+
 # Departamento
 class Departamento(models.Model):
     coddep = models.AutoField(primary_key=True)
     nome = models.CharField(max_length=255)
 
+    def __str__(self):
+        return self.nome
 # Vendas
 class Venda(models.Model):
     codf = models.ForeignKey(Funcionario, on_delete=models.CASCADE)
