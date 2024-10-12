@@ -33,4 +33,4 @@ def excel(request, chm):
             df.to_excel(writer, index=False, sheet_name='Produtos')
 
         return response
-    return render(request, "db/terminal.html", {})
+    return render(request, "db/terminal.html", {"ve":chm})
