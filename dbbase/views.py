@@ -12,7 +12,7 @@ def terminal(request):
     cargo = chamada(ve)
     if not cargo[0]:
         cargo = [True, "", ""]
-    contex={"re":cargo[1],"ch":cargo[2],"ve":ve,"url":f"{request.build_absolute_uri()}excel/{ve.replace('\n','')}"}
+    contex={"re":cargo[1],"ch":cargo[2],"ve":ve,"url":f"{request.build_absolute_uri()}excel/{urllib.parse.quote(ve.replace('\n',''))}"}
     return render(request,"db/terminal.html", contex)
 
 
