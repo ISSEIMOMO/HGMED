@@ -8,7 +8,7 @@ from django.http import HttpResponse
 
 
 def terminal(request):
-    ve='SELECT * FROM Departamento AS c\nWHERE c.nome = c.nome'
+    ve='SELECT * FROM Cargo AS c\nWHERE c.nome = c.nome'
     cargo = chamada(ve)
     if not cargo[0]:
         cargo = [True, "", ""]
