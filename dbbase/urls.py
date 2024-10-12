@@ -7,4 +7,5 @@ from dbbase.views import terminal, excel
 urlpatterns = [
     path('', terminal),
     path('excel/<str:chm>', excel),
+    #path('pes/<str:chm>', excel),
 ]
