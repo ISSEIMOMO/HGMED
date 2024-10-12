@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from dbbase.models import (Funcionario,Cargo,Departamento,Venda,Produto,Fornecedor,Carregamento,Desconto,
-                           Perda, Estoque, Despesa, Atividade, Ponto)
+                           Perda, Estoque, Despesa, Atividade, Ponto,TipoProduto)
 
 # Register your models here.
 
@@ -18,3 +18,5 @@ admin.site.register(Perda)
 admin.site.register(Estoque)
 admin.site.register(Despesa)
 admin.site.register(Atividade)
+admin.site.register(Ponto)
+admin.site.register(TipoProduto)
