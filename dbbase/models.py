@@ -1,7 +1,8 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
+from django.db import models
 
-# Create your models here.
-class Funcionario(models.Model):
+"""class CustomUser(AbstractUser):
     codf = models.AutoField(primary_key=True)
     codcarg = models.ForeignKey('Cargo', on_delete=models.CASCADE)
     coddep = models.ForeignKey('Departamento', on_delete=models.CASCADE)
@@ -10,11 +11,28 @@ class Funcionario(models.Model):
     data_nasc = models.DateField()
     telefone = models.CharField(max_length=20)
     endereco = models.CharField(max_length=255)
-    email = models.EmailField()
     salario = models.DecimalField(max_digits=10, decimal_places=2)
     tipo = models.CharField(max_length=10, choices=[('Contrato', 'Contrato'), ('Efetivo', 'Efetivo')])
     data_entrada = models.DateField()
     senha = models.CharField(max_length=128)
+"""
+
+# Create your models here.
+class Funcionario(AbstractUser):
+    codf = models.AutoField(primary_key=True)
+    codcarg = models.ForeignKey('Cargo', on_delete=models.CASCADE)
+    coddep = models.ForeignKey('Departamento', on_delete=models.CASCADE)
+    cpf = models.CharField(max_length=14)
+    data_nasc = models.DateField()
+    telefone = models.CharField(max_length=20)
+    endereco = models.CharField(max_length=255)
+    salario = models.DecimalField(max_digits=10, decimal_places=2)
+    tipo = models.CharField(max_length=10, choices=[('Contrato', 'Contrato'), ('Efetivo', 'Efetivo')])
+    data_entrada = models.DateField()
+
+    class Meta:
+        verbose_name = 'Funcionario'  # Nome singular
+        verbose_name_plural = 'Funcionarios'  # Nome plural
 
 # Cargo
 class Cargo(models.Model):
@@ -65,7 +83,7 @@ class VProduto(models.Model):
     valor = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):
-        return f"{self.nome}-{self.codcarg.nome}"
+        return f"{self.codpro} - {self.codtip.nome} - {self.codmarc.nome}"
 
 # Fornecedor
 class Fornecedor(models.Model):
