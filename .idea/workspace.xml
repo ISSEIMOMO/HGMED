@@ -9,6 +9,9 @@
       <change beforePath="$PROJECT_DIR$/dbbase/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/dbbase/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dbbase/md.py" beforeDir="false" afterPath="$PROJECT_DIR$/dbbase/md.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dbbase/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/dbbase/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbbase/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/dbbase/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbbase/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/dbbase/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/sql/pado.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions/sql/pado.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

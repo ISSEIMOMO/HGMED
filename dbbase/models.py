@@ -34,16 +34,16 @@ class Departamento(models.Model):
 # Vendas
 class Venda(models.Model):
     codf = models.ForeignKey(Funcionario, on_delete=models.CASCADE)
-    codpro = models.ForeignKey('Produto', on_delete=models.CASCADE)
+    codpro = models.ForeignKey('VProduto', on_delete=models.CASCADE)
     data_hora = models.DateTimeField()
 
     def __str__(self):
         return str(self.codpro.codcarg.nome)
 
-# Produtos
+# VProdutos
 
 class TipoProduto(models.Model):
-    codtip = models.CharField(primary_key=True)
+    codtip = models.AutoField(primary_key=True)
     nome = models.CharField(max_length=255)
 
     def __str__(self):
@@ -51,14 +51,14 @@ class TipoProduto(models.Model):
 
 
 class Marca(models.Model):
-    codtmarc = models.CharField(primary_key=True)
+    codtmarc = models.AutoField(primary_key=True)
     nome = models.CharField(max_length=255)
 
     def __str__(self):
         return self.nome
 
 
-class Produto(models.Model):
+class VProduto(models.Model):
     codpro = models.CharField(primary_key=True, max_length=100)  # Código de barras
     codtip = models.ForeignKey('TipoProduto', on_delete=models.CASCADE)
     codmarc = models.ForeignKey('Marca', on_delete=models.CASCADE)
@@ -81,7 +81,7 @@ class Fornecedor(models.Model):
 # Carregamentos
 class Carregamento(models.Model):
     codcar = models.AutoField(primary_key=True)
-    codpro = models.ForeignKey(Produto, on_delete=models.CASCADE)
+    codpro = models.ForeignKey(VProduto, on_delete=models.CASCADE)
     df = models.DateField()  # Data de fabricação
     dv = models.DateField()  # Data de validade
     lote = models.CharField(max_length=50)
@@ -92,7 +92,7 @@ class Carregamento(models.Model):
 # Desconto
 class Desconto(models.Model):
     coddes = models.AutoField(primary_key=True)
-    codpro = models.ForeignKey(Produto, on_delete=models.CASCADE)
+    codpro = models.ForeignKey(VProduto, on_delete=models.CASCADE)
     di = models.DateField()  # Data de início
     dt = models.DateField()  # Data de término
 
@@ -102,13 +102,13 @@ class Desconto(models.Model):
 # Perdas
 class Perda(models.Model):
     codper = models.AutoField(primary_key=True)
-    codpro = models.ForeignKey(Produto, on_delete=models.CASCADE)
+    codpro = models.ForeignKey(VProduto, on_delete=models.CASCADE)
     quantidade = models.PositiveIntegerField()
     dt = models.DateField()
 
 # Estoque
 class Estoque(models.Model):
-    codpro = models.OneToOneField(Produto, on_delete=models.CASCADE, primary_key=True)  # Relaciona com Produto
+    codpro = models.OneToOneField(VProduto, on_delete=models.CASCADE, primary_key=True)  # Relaciona com VProduto
     quantidade = models.PositiveIntegerField()
 
 # Despesas
