@@ -11,6 +11,7 @@ import urllib.parse
 
 
 def pes(request, chm=""):
+    chm = urllib.parse.unquote(chm) if chm else ""
     cargo = chamada(chm) if chm else [True, "", ""]
     err = ""
     if not cargo[0]:
