@@ -1,7 +1,7 @@
 <!-- templates/produtos.html -->
 {% extends 'base.html' %}
 
-{% block titulo %}Lista de Produtos{% endblock %}
+{% block titulo %}Terminal SQL{% endblock %}
 
 {% block conteudo %}
 {% if err %}
@@ -50,7 +50,7 @@
 </table>
 {% else %}
 {% if ve %}
-<li>Nenhum produto encontrado.</li>
+<li>Nenhum resultado encontrado.</li>
 {% endif %}
 {% endif %}
 {% endblock %}
