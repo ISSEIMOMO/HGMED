@@ -49,10 +49,7 @@
 
 {% block java %}
 // Abrir uma nova aba ou janela
-function abrirPagina() {
-    var textarea = document.getElementById('exampleFormControlTextarea1');
-    textarea.value = textarea.value.split(/\r?\n/).join(' ');
-    window.open('{{url}}excel/'+textarea.value, '_blank'); // '_blank' abre em uma nova aba
+    window.open('{{url}}', '_blank'); // '_blank' abre em uma nova aba
 }
 
 // Chamar a função ao clicar em um botão
