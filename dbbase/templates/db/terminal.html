@@ -4,12 +4,57 @@
 {% block titulo %}Lista de Produtos{% endblock %}
 
 {% block conteudo %}
-    <h2>Lista de Produtos</h2>
-    <ul>
-        {% for produto in re %}
-            <li>{{ produto.nome }} - R$ {{ produto.preco }}</li>
-        {% empty %}
-            <li>Nenhum produto encontrado.</li>
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">SQL AREA</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="height: 500px;">{{ ve }}</textarea>
+    </div>
+    <div class="">
+        <button type="submit" class="btn btn-primary mb-3">Fazer chamada</button>
+    </div>
+
+
+
+{% if re %}
+    <div class="row">
+    <div class="col"><h2>Resultados</h2></div>
+    <div class="col">
+        <button id="excel" type="submit" class="btn btn-primary mb-3">Baixar excel</button>
+    </div>
+    </div>
+
+    <table class="table">
+  <thead>
+    <tr>
+        {% for i in ch %}
+      <th scope="col">{{ i }}</th>
         {% endfor %}
-    </ul>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in re %}
+    <tr>
+      {% for ii in i %}
+      <td>{{ ii }}</td>
+    {% endfor %}
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+{% if ve %}
+<li>Nenhum produto encontrado.</li>
+{% endif %}
+{% endif %}
+{% endblock %}
+
+{% block java %}
+// Abrir uma nova aba ou janela
+function abrirPagina() {
+    var textarea = document.getElementById('exampleFormControlTextarea1');
+    textarea.value = textarea.value.split(/\r?\n/).join(' ');
+    window.open('{{url}}excel/'+textarea.value, '_blank'); // '_blank' abre em uma nova aba
+}
+
+// Chamar a função ao clicar em um botão
+document.getElementById('excel').addEventListener('click', abrirPagina);
 {% endblock %}
