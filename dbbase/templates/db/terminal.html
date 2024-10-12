@@ -1,0 +1,15 @@
+<!-- templates/produtos.html -->
+{% extends 'base.html' %}
+
+{% block titulo %}Lista de Produtos{% endblock %}
+
+{% block conteudo %}
+    <h2>Lista de Produtos</h2>
+    <ul>
+        {% for produto in re %}
+            <li>{{ produto.nome }} - R$ {{ produto.preco }}</li>
+        {% empty %}
+            <li>Nenhum produto encontrado.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
