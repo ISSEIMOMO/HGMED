@@ -2,7 +2,7 @@ from django.shortcuts import render
 from functions.sql.pado import chamada
 import pandas as pd
 from django.http import HttpResponse
-
+import urllib.parse
 
 # Create your views here.
 
@@ -18,6 +18,7 @@ def terminal(request):
 
 
 def excel(request, chm):
+    chm = urllib.parse.unquote(chm)
     est = chamada(chm)
     if est[0]:
         est, resultados, colunas = est
