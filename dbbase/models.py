@@ -43,9 +43,16 @@ class Venda(models.Model):
 # Produtos
 
 class TipoProduto(models.Model):
-    codtpro = models.CharField(primary_key=True)
+    codtip = models.CharField(primary_key=True)
     nome = models.CharField(max_length=255)
-    valor = models.DecimalField(max_digits=10, decimal_places=2)
+
+    def __str__(self):
+        return self.nome
+
+
+class Marca(models.Model):
+    codtmarc = models.CharField(primary_key=True)
+    nome = models.CharField(max_length=255)
 
     def __str__(self):
         return self.nome
@@ -53,7 +60,8 @@ class TipoProduto(models.Model):
 
 class Produto(models.Model):
     codpro = models.CharField(primary_key=True, max_length=100)  # Código de barras
-    codcarg = models.ForeignKey('TipoProduto', on_delete=models.CASCADE)
+    codtip = models.ForeignKey('TipoProduto', on_delete=models.CASCADE)
+    codmarc = models.ForeignKey('Marca', on_delete=models.CASCADE)
     valor = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):

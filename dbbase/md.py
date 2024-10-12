@@ -11,4 +11,5 @@ mod = ["Funcionario"
 ,"Despesa"
 ,"Atividade"
 ,"Ponto"
-,"TipoProduto"]
+,"TipoProduto"
+,"Marca"]
