@@ -56,7 +56,7 @@ class Venda(models.Model):
     data_hora = models.DateTimeField()
 
     def __str__(self):
-        return str(self.codpro.codcarg.nome)
+        return f"{self.codpro.codtip.nome} - {self.codpro.codmarc.nome}"
 
 # VProdutos
 
