@@ -53,7 +53,7 @@ class Departamento(models.Model):
 class Venda(models.Model):
     codvend = models.AutoField(primary_key=True)
     codf = models.ForeignKey(Funcionario, on_delete=models.CASCADE)
-    codcli = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    codcli = models.ForeignKey(Cliente, on_delete=models.CASCADE, null=True)
     cpf = models.CharField(max_length=14, unique=False)
     data_hora = models.DateTimeField()
 
