@@ -2,27 +2,13 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
-"""class CustomUser(AbstractUser):
-    codf = models.AutoField(primary_key=True)
-    codcarg = models.ForeignKey('Cargo', on_delete=models.CASCADE)
-    coddep = models.ForeignKey('Departamento', on_delete=models.CASCADE)
-    nome = models.CharField(max_length=255)
-    cpf = models.CharField(max_length=14)
-    data_nasc = models.DateField()
-    telefone = models.CharField(max_length=20)
-    endereco = models.CharField(max_length=255)
-    salario = models.DecimalField(max_digits=10, decimal_places=2)
-    tipo = models.CharField(max_length=10, choices=[('Contrato', 'Contrato'), ('Efetivo', 'Efetivo')])
-    data_entrada = models.DateField()
-    senha = models.CharField(max_length=128)
-"""
 
 # Create your models here.
 class Funcionario(AbstractUser):
     codf = models.AutoField(primary_key=True)
     codcarg = models.ForeignKey('Cargo', on_delete=models.CASCADE)
     coddep = models.ForeignKey('Departamento', on_delete=models.CASCADE)
-    cpf = models.CharField(max_length=14)
+    cpf = models.CharField(max_length=14, unique=True)
     data_nasc = models.DateField()
     telefone = models.CharField(max_length=20)
     endereco = models.CharField(max_length=255)
@@ -33,6 +19,20 @@ class Funcionario(AbstractUser):
     class Meta:
         verbose_name = 'Funcionario'  # Nome singular
         verbose_name_plural = 'Funcionarios'  # Nome plural
+
+
+
+
+class Cliente(models.Model):
+    codcli = models.AutoField(primary_key=True)
+    nome = models.CharField(max_length=255)
+    cpf = models.CharField(max_length=14, unique=True)
+    senha = models.CharField(max_length=128)
+    telefone = models.CharField(max_length=20)
+    endereco = models.CharField(max_length=255)
+    data_cas = models.DateField()  # Data e hora
+
+
 
 # Cargo
 class Cargo(models.Model):
@@ -51,9 +51,20 @@ class Departamento(models.Model):
         return self.nome
 # Vendas
 class Venda(models.Model):
+    codvend = models.AutoField(primary_key=True)
     codf = models.ForeignKey(Funcionario, on_delete=models.CASCADE)
-    codpro = models.ForeignKey('VProduto', on_delete=models.CASCADE)
+    codcli = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    cpf = models.CharField(max_length=14, unique=False)
     data_hora = models.DateTimeField()
+
+
+    def __str__(self):
+        return f"{self.codf.nome} - {self.data_hora}"
+
+class PVenda(models.Model):
+    codpv = models.AutoField(primary_key=True)
+    codvend = models.ForeignKey(Venda, on_delete=models.CASCADE)
+    codpro = models.ForeignKey('VProduto', on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.codpro.codtip.nome} - {self.codpro.codmarc.nome}"
@@ -109,8 +120,10 @@ class Carregamento(models.Model):
 
 # Desconto
 class Desconto(models.Model):
+    codf = models.ForeignKey(Funcionario, on_delete=models.CASCADE, default=55)
     coddes = models.AutoField(primary_key=True)
     codpro = models.ForeignKey(VProduto, on_delete=models.CASCADE)
+    valor = models.DecimalField(max_digits=10, decimal_places=2)
     di = models.DateField()  # Data de início
     dt = models.DateField()  # Data de término
 
