@@ -1,9 +1,14 @@
 from django.db import connection
 from dbbase.md import mod
 def pdr(t):
-    for i in mod:
-        t=t.replace(i,f"dbbase_{i}")
-    print(t)
+    mdd=mod[:]
+    x=0
+    for i in mdd:
+        t=t.replace(i,str(x))
+    for i in mdd:
+        if str(x) in t:
+            t = t.replace(i, f"dbbase_{mdd[x]}")
+        x=x+1
     return t
 
 

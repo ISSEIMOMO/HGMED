@@ -1,6 +1,8 @@
 mod = ["Funcionario"
+,"Cliente"
 ,"Cargo"
 ,"Departamento"
+,"PVenda"
 ,"Venda"
 ,"TipoProduto"
 ,"VProduto"
