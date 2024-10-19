@@ -15,3 +15,127 @@ mod = ["Funcionario"
 ,"Atividade"
 ,"Ponto"
 ,"Marca"]
+
+ER = {
+"dbbase_Funcionario":
+          {"cp":[
+            "codf"
+            ,"codcarg_id"
+            ,"coddep_id"
+            ,"cpf"
+            ,"data_nasc"
+            ,"telefone"
+            ,"endereco"
+            ,"salario"
+            ,"tipo"
+            ,"data_entrada"
+          ]}
+,"dbbase_Cliente":
+          {"cp":[
+            "codcli"
+            ,"nome"
+            ,"cpf"
+            ,"senha"
+            ,"telefone"
+            ,"endereco"
+            ,"data_cas"
+          ]}
+,"dbbase_Cargo":
+        {"cp":[
+            "codcargo"
+            ,"nome"
+        ]}
+,"dbbase_Departamento":
+        {"cp":[
+            "coddep"
+            ,"nome"
+        ]}
+,"dbbase_PVenda":
+        {"cp":[
+            "codpv"
+            ,"codvend_id"
+            ,"codpro_id"
+        ]}
+,"dbbase_Venda":
+        {"cp":[
+            "codvend"
+            ,"codf_id"
+            ,"codcli_cli"
+            ,"cpf"
+            ,"data_hora"
+        ]}
+,"dbbase_TipoProduto":
+        {"cp":[
+           "codtip"
+            ,"nome"
+        ]}
+,"dbbase_VProduto":
+        {"cp":[
+            "codpro"
+            ,"codtip_id"
+            ,"codmarc_id"
+            ,"valor"
+        ]}
+,"dbbase_Fornecedor":
+        {"cp":[
+            "codfor"
+            ,"nome"
+            ,"ende"
+            ,"vpc"
+            ,"ve"
+        ]}
+,"dbbase_Carregamento":
+        {"cp":[
+            "codcar"
+            ,"codpro_id"
+            ,"df"
+            ,"dv"
+            ,"lote"
+        ]}
+,"dbbase_Desconto":
+        {"cp":[
+            "coddes"
+            , "codf_id"
+            , "codpro_id"
+            , "valor"
+            , "di"
+            , "dt"
+        ]}
+,"dbbase_Perda":
+        {"cp":[
+            "codper"
+            ,"codpro_id"
+            ,"quantidade"
+            ,"dt"
+        ]}
+,"dbbase_Estoque":
+        {"cp":[
+            "codpro"
+            ,"quantidade"
+        ]}
+,"dbbase_Despesa":
+        {"cp":[
+            "coddesp"
+            ,"desp"
+            ,"valor"
+        ]}
+,"dbbase_Atividade":
+        {"cp":[
+            "codatv"
+            ,"codf_gerente_id"
+            ,"codf_funcionario_id"
+            ,"tarefa"
+            ,"dia"
+        ]}
+,"dbbase_Ponto":
+        {"cp":[
+            "codponto"
+            ,"codf_id"
+            ,"diah"
+        ]}
+,"dbbase_Marca":
+        {"cp":[
+            "codtmarc"
+            ,"nome"
+        ]}
+}

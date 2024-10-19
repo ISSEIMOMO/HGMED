@@ -54,12 +54,16 @@ class Venda(models.Model):
     codvend = models.AutoField(primary_key=True)
     codf = models.ForeignKey(Funcionario, on_delete=models.CASCADE)
     codcli = models.ForeignKey(Cliente, on_delete=models.CASCADE, null=True)
-    cpf = models.CharField(max_length=14, unique=False)
+    cpf = models.CharField(max_length=14, unique=False, null=True)
     data_hora = models.DateTimeField()
 
 
     def __str__(self):
         return f"{self.codf.nome} - {self.data_hora}"
+
+    def save(self, *args, **kwargs):
+        super(Venda, self).save(*args, **kwargs)
+        return self.pk
 
 class PVenda(models.Model):
     codpv = models.AutoField(primary_key=True)
@@ -120,8 +124,8 @@ class Carregamento(models.Model):
 
 # Desconto
 class Desconto(models.Model):
-    codf = models.ForeignKey(Funcionario, on_delete=models.CASCADE, default=55)
     coddes = models.AutoField(primary_key=True)
+    codf = models.ForeignKey(Funcionario, on_delete=models.CASCADE)
     codpro = models.ForeignKey(VProduto, on_delete=models.CASCADE)
     valor = models.DecimalField(max_digits=10, decimal_places=2)
     di = models.DateField()  # Data de início

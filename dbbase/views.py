@@ -15,8 +15,8 @@ def pes(request, chm=""):
     cargo = chamada(chm) if chm else [True, "", ""]
     err = ""
     if not cargo[0]:
+        err = cargo[1]
         cargo = [True, "", ""]
-        err = "Erro na chamada, chamada errada"
     url=str(request.build_absolute_uri(reverse('excel',args=[str(urllib.parse.quote(chm))]))) if chm else ""
     contex = {"re": cargo[1], "ch": cargo[2], "ve": chm,
               "url": url,"urlpes":request.build_absolute_uri(reverse('pes')),"err":err}
@@ -40,7 +40,6 @@ def excel(request, chm):
 
         return response
     return render(request, "db/terminal.html", {"ve":chm})
-
 
 
 
