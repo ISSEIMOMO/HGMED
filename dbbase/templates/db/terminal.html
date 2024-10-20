@@ -5,12 +5,14 @@
 
 {% block conteudo %}
 {% if err %}
+{% for i in err %}
 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-  <strong>Erro</strong> {% for i in err %}{{i}}{% endfor %}
+  <strong>Erro: </strong> {{i}}
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
+{% endfor %}
 {% endif %}
     <div class="mb-3">
       <label for="exampleFormControlTextarea1" class="form-label">SQL AREA</label>

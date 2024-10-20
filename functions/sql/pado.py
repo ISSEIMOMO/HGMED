@@ -1,6 +1,7 @@
 from django.db import connection
 from dbbase.md import mod,ER as er
 import sqlglot
+import difflib
 
 
 def pdr(t):
@@ -13,7 +14,13 @@ def pdr(t):
     return palavras
 
 
-import sqlglot
+def nome_mais_proximo(palavra, opcoes):
+    correspondencias = difflib.get_close_matches(palavra, opcoes, n=1)
+
+    if correspondencias:
+        return correspondencias[0]
+    else:
+        return None
 
 
 def verifierros(query):
@@ -23,6 +30,9 @@ def verifierros(query):
         parsed = sqlglot.parse_one(query)
     except Exception as e:
         return [f"Erro de sintaxe na consulta SQL: {e}"]  # Captura erros de sintaxe
+
+    if not isinstance(parsed, sqlglot.exp.Select):
+        erros.append(f"Ação do tipo |{parsed.__class__.__name__}| não autorizada")
 
     # Obtendo as tabelas da consulta
     tables = parsed.find_all(sqlglot.exp.Table)
@@ -41,8 +51,10 @@ def verifierros(query):
     for col_name, table_alias in column_info:
         real_table_name = table_map.get(table_alias, table_alias)
         if f"dbbase_{real_table_name}" in list(er.keys()):
-            if not col_name in er[f"dbbase_{real_table_name}"]:
-                erros.append(f"A tabela |{real_table_name}| não tem o campo |{col_name}|")
+            if not col_name in er[f"dbbase_{real_table_name}"]["cp"]:
+                adic=nome_mais_proximo(col_name,er[f"dbbase_{real_table_name}"]["cp"])
+                adic=f" - Vc não quis dizer |{adic}|" if adic else ""
+                erros.append(f"A tabela |{real_table_name}| não tem o campo |{col_name}|"+adic)
 
     return erros
 
