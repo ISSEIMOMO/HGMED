@@ -18,9 +18,9 @@ def nome_mais_proximo(palavra, opcoes):
     correspondencias = difflib.get_close_matches(palavra, opcoes, n=1)
 
     if correspondencias:
-        return correspondencias[0]
+        return f" - Vc não quis dizer |{correspondencias[0]}|"
     else:
-        return None
+        return ""
 
 
 def verifierros(query):
@@ -45,16 +45,14 @@ def verifierros(query):
     # Verifica se as tabelas existem
     for table_name in table_map.values():
         if not f"dbbase_{table_name}" in list(er.keys()):
-            erros.append(f"A tabela |{table_name}| não existe")
+            erros.append(f"A tabela |{table_name}| não existe{nome_mais_proximo(table_name, mod)}")
 
     # Verifica se as colunas existem nas respectivas tabelas
     for col_name, table_alias in column_info:
         real_table_name = table_map.get(table_alias, table_alias)
         if f"dbbase_{real_table_name}" in list(er.keys()):
             if not col_name in er[f"dbbase_{real_table_name}"]["cp"]:
-                adic=nome_mais_proximo(col_name,er[f"dbbase_{real_table_name}"]["cp"])
-                adic=f" - Vc não quis dizer |{adic}|" if adic else ""
-                erros.append(f"A tabela |{real_table_name}| não tem o campo |{col_name}|"+adic)
+                erros.append(f"A tabela |{real_table_name}| não tem o campo |{col_name}|{nome_mais_proximo(col_name,er[f'dbbase_{real_table_name}']['cp'])}")
 
     return erros
 
