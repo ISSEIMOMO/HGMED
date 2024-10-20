@@ -29,6 +29,16 @@ ER = {
             ,"salario"
             ,"tipo"
             ,"data_entrada"
+            ,"date_joined"
+            ,"email"
+            ,"first_name"
+            ,"is_active"
+            ,"is_staff"
+            ,"is_superuser"
+            ,"last_login"
+            ,"last_name"
+            ,"password"
+            ,"username"
           ]}
 ,"dbbase_Cliente":
           {"cp":[
