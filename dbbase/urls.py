@@ -6,6 +6,7 @@ from dbbase.views import excel, pes, adicionar#, terminal
 
 urlpatterns = [
     path('', pes),
+    path('excel/<str:chm>/<str:nm>', excel, name="excel"),
     path('excel/<str:chm>', excel, name="excel"),
     path('pes/', pes, name="pes"),
     path('pes/<str:chm>', pes),

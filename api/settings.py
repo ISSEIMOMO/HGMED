@@ -87,6 +87,20 @@ DATABASES = {
     )
 }
 
+"""DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'HOST': '35.198.50.92',
+        'USER': 'Django',
+        'PASSWORD': 'tuTGMFhERpC%Y|xJ',
+        'NAME': 'postgres',
+        'PORT': '5432',
+        'OPTIONS': {
+            'sslmode': 'prefer',  # ou 'prefer', conforme necessário
+        },
+    }
+}"""
+
 
 
 # Password validation

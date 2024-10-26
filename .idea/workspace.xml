@@ -6,7 +6,50 @@
   <component name="ChangeListManager">
     <list default="true" id="06b18de9-14ae-4855-855c-807df77cf933" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbbase/md.py" beforeDir="false" afterPath="$PROJECT_DIR$/dbbase/md.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbbase/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbbase/migrations/0002_marca_tipoproduto_produto_codmarc_produto_codtip.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbbase/migrations/0003_alter_marca_codtmarc_alter_tipoproduto_codtip.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbbase/migrations/0004_auto_20241012_1614.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbbase/migrations/0005_remove_produto_codmarc_delete_marca.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbbase/migrations/0006_remove_produto_codtip_delete_tipoproduto.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbbase/migrations/0007_marca_tipoproduto_produto_codmarc_produto_codtip.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbbase/migrations/0008_remove_produto_codmarc_remove_produto_codtip_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbbase/migrations/0009_remove_atividade_codf_funcionario_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbbase/migrations/0010_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbbase/migrations/0011_alter_atividade_codatv_alter_cargo_codcargo_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbbase/migrations/0012_alter_atividade_codatv_alter_cargo_codcargo_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbbase/migrations/0013_rename_produto_vproduto.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbbase/migrations/0014_alter_funcionario_options_alter_funcionario_managers_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbbase/migrations/0015_remove_funcionario_senha.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbbase/migrations/0016_alter_funcionario_options_alter_funcionario_managers_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbbase/migrations/0017_alter_funcionario_options_alter_funcionario_managers_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbbase/migrations/0018_alter_funcionario_data_nasc.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbbase/migrations/0019_alter_funcionario_cpf_alter_funcionario_endereco_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbbase/migrations/0020_alter_funcionario_data_entrada.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbbase/migrations/0021_alter_funcionario_codcarg_alter_funcionario_coddep.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbbase/migrations/0022_alter_funcionario_options_alter_funcionario_table.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbbase/migrations/0023_alter_funcionario_options_alter_funcionario_table.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbbase/migrations/0024_alter_funcionario_options_remove_funcionario_nome_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbbase/migrations/0025_desconto_valor.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbbase/migrations/0026_desconto_codf.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbbase/migrations/0027_cliente_remove_venda_codpro_remove_venda_id_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbbase/migrations/0028_remove_venda_codcli_remove_venda_codf_delete_pvenda_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbbase/migrations/0029_venda_pvenda.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbbase/migrations/0030_remove_venda_codcli_remove_venda_codf_delete_pvenda_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbbase/migrations/0031_venda_pvenda.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbbase/migrations/0032_remove_venda_codcli_remove_pvenda_codpro_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbbase/migrations/0033_cliente_venda_pvenda.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbbase/migrations/0034_alter_desconto_codf_alter_venda_cpf_delete_estoque.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbbase/migrations/0035_estoque.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbbase/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/dbbase/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbbase/templates/db/terminal.html" beforeDir="false" afterPath="$PROJECT_DIR$/dbbase/templates/db/terminal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbbase/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/dbbase/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbbase/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/dbbase/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/sql/pado.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions/sql/pado.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/teste.py" beforeDir="false" afterPath="$PROJECT_DIR$/teste.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vercel.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +80,7 @@
   &quot;keyToString&quot;: {
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;Python.teste.executor&quot;: &quot;Run&quot;,
+    &quot;Python.views.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/mggyg/PycharmProjects/trabalhovero&quot;
@@ -94,9 +138,32 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="views" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="trabalhovero" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dbbase" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dbbase/views.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.teste" />
+        <item itemvalue="Python.views" />
       </list>
     </recent_temporary>
   </component>

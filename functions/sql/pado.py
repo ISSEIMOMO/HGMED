@@ -1,16 +1,17 @@
 from django.db import connection
-from dbbase.md import mod,ER as er
+from dbbase.md import mod, ER as er
 import sqlglot
 import difflib
 
 
 def pdr(t):
-    palavras = t
+    t = t[0:len(t)-1] if t[len(t)-1]==";" else t
+    palavras = t.split()
     for i in mod:
-        palavras = palavras.split()
-        palavra_nova=f"dbbase_{i}"
-        palavra_antiga=i
-        palavras = ' '.join([palavra_nova if palavra == palavra_antiga else palavra for palavra in palavras])
+        palavra_nova = f"dbbase_{i}"
+        palavra_antiga = i
+        palavras = [palavra_nova.lower() if palavra.lower() == palavra_antiga.lower() else palavra for palavra in palavras]
+    palavras = ' '.join(palavras)
     return palavras
 
 
@@ -24,12 +25,31 @@ def nome_mais_proximo(palavra, opcoes):
 
 
 def verifierros(query):
+    txtre = [
+        ["Required keyword: 'expression' missing for <class 'sqlglot.expressions.Mul'>.", ""],
+        ["[4m", "|"],
+        ["[0m", "|"]
+    ]
+
     erros = []
+    sugestoes = {
+        "FRROM": "FROM",
+        "SELCT": "SELECT",
+        "INSRT": "INSERT",
+        "UPDAE": "UPDATE",
+        # Adicione mais correções comuns aqui, se necessário
+    }
 
     try:
         parsed = sqlglot.parse_one(query)
     except Exception as e:
-        return [f"Erro de sintaxe na consulta SQL: {e}"]  # Captura erros de sintaxe
+        e = str(e)
+        for i in txtre:
+            e = e.replace(i[0], i[1])
+        for erro, correcao in sugestoes.items():
+            if erro in query:
+                e = f"você quis dizer |{correcao}| em vez de |{erro}|?"
+        return [f"Erro de sintaxe na consulta SQL: {e}"]
 
     if not isinstance(parsed, sqlglot.exp.Select):
         erros.append(f"Ação do tipo |{parsed.__class__.__name__}| não autorizada")
@@ -60,10 +80,10 @@ def verifierros(query):
 def chamada(str):
     with connection.cursor() as cursor:
         cc=verifierros(str)
-        print(cc)
         if not cc==[]:
            return False, cc
         try:
+            print(pdr(str))
             cursor.execute(pdr(str))
         except Exception as e:
             print(e)
